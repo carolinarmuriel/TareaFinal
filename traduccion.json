@@ -1,0 +1,42 @@
+{
+  "es": {
+    "audio_guide": "Audioguía",
+    "welcome": "Bienvenidos",
+    "featured_animals": "Animales Destacados",
+    "articles": "Artículos Recientes",
+    "video_section": "Video Destacado",
+    "knowledge_test": "¿Qué animal eres según tu personalidad?"
+  },
+  "en": {
+    "audio_guide": "Audio Guide",
+    "welcome": "Welcome",
+    "featured_animals": "Featured Animals",
+    "articles": "Recent Articles",
+    "video_section": "Featured Video",
+    "knowledge_test": "Which animal are you according to your personality?"
+  },
+  "fr": {
+    "audio_guide": "Guide Audio",
+    "welcome": "Bienvenue",
+    "featured_animals": "Animaux en Vedette",
+    "articles": "Articles Récents",
+    "video_section": "Vidéo en Vedette",
+    "knowledge_test": "Quel animal êtes-vous selon votre personnalité?"
+  },
+  "de": {
+    "audio_guide": "Audioguide",
+    "welcome": "Willkommen",
+    "featured_animals": "Hervorgehobene Tiere",
+    "articles": "Aktuelle Artikel",
+    "video_section": "Empfohlenes Video",
+    "knowledge_test": "Welches Tier bist du nach deiner Persönlichkeit?"
+  },
+  "pt": {
+    "audio_guide": "Guia de Áudio",
+    "welcome": "Bem-vindo",
+    "featured_animals": "Animais em Destaque",
+    "articles": "Artigos Recentes",
+    "video_section": "Vídeo em Destaque",
+    "knowledge_test": "Qual animal você é de acordo com sua personalidade?"
+  }
+}
