@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reptiles - Cultura Animal</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">  
+        <link rel="stylesheet" href="../animales/estilos.css">
+        <link rel="icon" href="../imagenes/favicon.ico" type="image/x-icon">
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Encabezado -->
+        <header>
+            <img src="../imagenes/logo.jpg" alt="Logo de Cultura Animal">
+            <h1>Cultura Animal</h1>
+            <p>Explorando la diversidad del reino animal de una manera natural</p>
+        </header>
+        <!-- Navegación -->
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li>
+                    <a href="../tiposAnimales.html">Animales</a>
+                    <ul>
+                        <li><a href="../animales/mamiferos.html">Mamíferos</a></li>
+                        <li><a href="../animales/anfibios.html">Anfibios</a></li>
+                        <li><a href="../animales/reptiles.html">Reptiles</a></li>
+                        <li><a href="../animales/peces.html">Peces</a></li>
+                        <li><a href="../animales/aves.html">Aves</a></li>
+                        <li><a href="../animales/insectos.html">Insectos</a></li>
+                        <li><a href="../animales/artropodos.html">Artrópodos</a></li>
+                        <li><a href="../animales/crustaceos.html">Crustáceos</a></li>
+                        <li><a href="../animales/moluscos.html">Moluscos</a></li>
+                    </ul>
+                </li>
+                <li><a href="../Galería.html">Galería</a></li>
+                <li><a href="../Apadrinar.html">Apadrina un animal</a></li>
+                <li><a href="../Contacto.html">Contacto</a></li>
+            </ul>
+            <select id="languageSelector" aria-label="Selector de idioma">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="pt">Português</option>
+            </select>
+            <input type="text" id="searchBar" placeholder="Buscar..." aria-label="Buscar">
+        </nav>
+    <!-- Contenido principal -->
+    <div class="container mt-4">
+        <!-- Sección Reptiles -->
+        <section id="reptiles">
+            <h2>Reptiles</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="../imagenes/reptiles/serpiente.jpg" class="card-img-top" alt="Serpiente">
+                        <div class="card-body">
+                            <h5 class="card-title">Serpiente</h5>
+                            <p class="card-text">Las serpientes son reptiles sin patas que se encuentran en todo el mundo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="../imagenes/reptiles/tortuga.jpg" class="card-img-top" alt="Tortuga">
+                        <div class="card-body">
+                            <h5 class="card-title">Tortuga</h5>
+                            <p class="card-text">Las tortugas son reptiles con un caparazón duro que las protege de los depredadores.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="../imagenes/reptiles/lagarto.jpg" class="card-img-top" alt="Lagarto">
+                        <div class="card-body">
+                            <h5 class="card-title">Lagarto</h5>
+                            <p class="card-text">Los lagartos son reptiles con cuerpos alargados y patas. Se encuentran en una variedad de hábitats.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="text-center py-3">
+        <p>&copy; 2024 Cultura Animal. Todos los derechos reservados.</p>
+    </footer>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Vincular script externo -->
+    <script src="https://unpkg.com/i18next@21.6.3/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector@6.1.2/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend@1.3.1/dist/umd/i18nextHttpBackend.min.js"></script>
+    <script>
+        i18next
+          .use(i18nextHttpBackend)
+          .use(i18nextBrowserLanguageDetector)
+          .init({
+            fallbackLng: 'es',
+            backend: {
+              loadPath: '/locales/traduccion.json'
+            }
+          }, function(err, t) {
+            updateContent();
+          });
+      
+        function updateContent() {
+          document.querySelectorAll('[data-translate]').forEach(function(element) {
+            element.innerText = i18next.t(element.getAttribute('data-translate'));
+          });
+        }
+      
+        document.getElementById('languageSelector').addEventListener('change', function() {
+          i18next.changeLanguage(this.value, updateContent);
+        });
+      
+        document.getElementById('searchBar').addEventListener('keyup', function() {
+          let filter = this.value.toLowerCase();
+          let cards = document.querySelectorAll('.card');
+          
+          cards.forEach(function(card) {
+            let text = card.innerText.toLowerCase();
+            if (text.includes(filter)) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+    </script>
+</body>
+</html>
